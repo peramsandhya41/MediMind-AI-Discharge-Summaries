@@ -23,11 +23,20 @@ DB = DATA / "medimind.db"
 UPLOADS = DATA / "uploads"
 UPLOADS.mkdir(exist_ok=True)
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+import os
+
+app = FastAPI()
+
+origins = [
+    "http://localhost:5173",
+    "https://medimind-frontend-idyr.onrender.com",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://medimind-frontend-idyr.onrender.com"
-    ],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
