@@ -23,10 +23,15 @@ DB = DATA / "medimind.db"
 UPLOADS = DATA / "uploads"
 UPLOADS.mkdir(exist_ok=True)
 
-app = FastAPI(title="MediMind API", version="2.0.0")
-_cors = [x.strip() for x in os.getenv('MEDIMIND_CORS_ORIGINS', 'http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174,http://localhost:4173,http://127.0.0.1:4173').split(',') if x.strip()]
-app.add_middleware(CORSMiddleware, allow_origins=_cors, allow_credentials=True, allow_methods=['*'], allow_headers=['*'])
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://medimind-frontend-idyr.onrender.com"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class DoctorLogin(BaseModel):
     email: str
     mobile: str
