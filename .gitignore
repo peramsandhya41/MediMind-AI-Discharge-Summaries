@@ -1,0 +1,8 @@
+node_modules/
+frontend/dist/
+backend/.venv/
+backend/data/medimind.db
+backend/data/uploads/
+__pycache__/
+*.pyc
+.env
