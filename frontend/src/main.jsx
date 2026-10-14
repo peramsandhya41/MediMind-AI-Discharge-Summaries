@@ -2,8 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import './styles.css';
 
-const API=(import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api').replace(/\/$/, '');
-
+const API = (import.meta.env.VITE_API_BASE_URL || 'https://medimind-backend-q0pi.onrender.com/api').replace(/\/$/, '');
 function App(){
  const [role,setRole]=useState('doctor');
  const [user,setUser]=useState(null);
